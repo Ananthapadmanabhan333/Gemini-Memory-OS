@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #03000a;
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Premium glassmorphic background scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* Glassmorphism panel cards */
+.glass-panel {
+  background: rgba(10, 5, 20, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+}
+
+.glass-panel-purple {
+  background: rgba(20, 5, 30, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(217, 70, 239, 0.12);
+  border-radius: 16px;
+}
+
+/* Cinematic glowing background radial beams */
+.radial-glow-cyan {
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.radial-glow-purple {
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.08) 0%, rgba(0, 0, 0, 0) 75%);
+}
+
+/* Glowing text and console components */
+.glowing-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.glowing-text-purple {
+  text-shadow: 0 0 10px rgba(217, 70, 239, 0.3);
+}
+
+/* Interactive custom card styling */
+.nav-card-active {
+  background: rgba(0, 240, 255, 0.04);
+  border: 1px solid rgba(0, 240, 255, 0.3) !important;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}

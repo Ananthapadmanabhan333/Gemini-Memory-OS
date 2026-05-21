@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-os-backend
+  labels:
+    app: memory-os-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: memory-os-backend
+  template:
+    metadata:
+      labels:
+        app: memory-os-backend
+    spec:
+      containers:
+      - name: backend
+        image: memory-os-backend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://postgres:talent_os_2026@postgres-service:5432/memory_os"
+        - name: QDRANT_URL
+          value: "http://qdrant-service:6333"
+        - name: NEO4J_URI
+          value: "bolt://neo4j-service:7687"
+        - name: USE_LOCAL_VECTOR_STORE
+          value: "false"
+        - name: USE_LOCAL_GRAPH_STORE
+          value: "false"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: memory-os-backend
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+  type: ClusterIP
